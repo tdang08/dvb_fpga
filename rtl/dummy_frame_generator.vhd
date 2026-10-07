@@ -62,14 +62,14 @@ architecture dummy_frame_generator of dummy_frame_generator is
   -- Constants --
   ---------------
   constant MOD_8PSK_MAP : std_logic_array_t(0 to 7)(TDATA_WIDTH - 1 downto 0) := (
-    0 => std_logic_vector(cos(      MATH_PI / 4.0, TDATA_WIDTH/2) & sin(      MATH_PI / 4.0, TDATA_WIDTH/2)),
-    1 => std_logic_vector(cos(5.0 * MATH_PI / 4.0, TDATA_WIDTH/2) & sin(5.0 * MATH_PI / 4.0, TDATA_WIDTH/2)),
-    2 => std_logic_vector(cos(5.0 * MATH_PI / 4.0, TDATA_WIDTH/2) & sin(      MATH_PI / 4.0, TDATA_WIDTH/2)),
-    3 => std_logic_vector(cos(      MATH_PI / 4.0, TDATA_WIDTH/2) & sin(5.0 * MATH_PI / 4.0, TDATA_WIDTH/2)),
-    4 => std_logic_vector(cos(5.0 * MATH_PI / 4.0, TDATA_WIDTH/2) & sin(      MATH_PI / 4.0, TDATA_WIDTH/2)),
-    5 => std_logic_vector(cos(      MATH_PI / 4.0, TDATA_WIDTH/2) & sin(5.0 * MATH_PI / 4.0, TDATA_WIDTH/2)),
-    6 => std_logic_vector(cos(5.0 * MATH_PI / 4.0, TDATA_WIDTH/2) & sin(5.0 * MATH_PI / 4.0, TDATA_WIDTH/2)),
-    7 => std_logic_vector(cos(      MATH_PI / 4.0, TDATA_WIDTH/2) & sin(      MATH_PI / 4.0, TDATA_WIDTH/2))
+    0 => std_logic_vector(sin(      MATH_PI / 4.0, TDATA_WIDTH/2) & cos(      MATH_PI / 4.0, TDATA_WIDTH/2)),
+    1 => std_logic_vector(sin(5.0 * MATH_PI / 4.0, TDATA_WIDTH/2) & cos(5.0 * MATH_PI / 4.0, TDATA_WIDTH/2)),
+    2 => std_logic_vector(sin(      MATH_PI / 4.0, TDATA_WIDTH/2) & cos(5.0 * MATH_PI / 4.0, TDATA_WIDTH/2)),
+    3 => std_logic_vector(sin(5.0 * MATH_PI / 4.0, TDATA_WIDTH/2) & cos(      MATH_PI / 4.0, TDATA_WIDTH/2)),
+    4 => std_logic_vector(sin(      MATH_PI / 4.0, TDATA_WIDTH/2) & cos(5.0 * MATH_PI / 4.0, TDATA_WIDTH/2)),
+    5 => std_logic_vector(sin(5.0 * MATH_PI / 4.0, TDATA_WIDTH/2) & cos(      MATH_PI / 4.0, TDATA_WIDTH/2)),
+    6 => std_logic_vector(sin(5.0 * MATH_PI / 4.0, TDATA_WIDTH/2) & cos(5.0 * MATH_PI / 4.0, TDATA_WIDTH/2)),
+    7 => std_logic_vector(sin(      MATH_PI / 4.0, TDATA_WIDTH/2) & cos(      MATH_PI / 4.0, TDATA_WIDTH/2))
   );
 
   function get_encoded_header return std_logic_array_t is
